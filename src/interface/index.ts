@@ -1,8 +1,8 @@
-import * as Common from './common'
+import * as Test from './test'
 export default interface State {
-  common: Common.State
+  test: Test.State
 }
 
 export {
-  Common
+  Test
 }

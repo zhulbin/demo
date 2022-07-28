@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import { reducer as commonReducer } from './common'
+import { reducer as testReducer } from './test'
 
 export const createRootReducer = () => combineReducers({
-  common: commonReducer
+  test: testReducer
 })

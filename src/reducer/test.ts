@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import  * as TYPE  from 'src/constant'
-import { Common as Interface } from 'src/interface'
+import { Test as Interface } from 'src/interface'
 
 const initialState: Interface.State = {
   value: ''
