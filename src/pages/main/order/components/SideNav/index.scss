@@ -1,0 +1,31 @@
+.scrollView {
+  position: sticky;
+  top: 200px;
+  height: calc(100vh - 200px);
+  width: 160px;
+  background: #fff;
+  border-radius: 0 60px 60px 0;
+}
+.srcollItem {
+  position: relative;
+  height: 180px;
+  z-index: 3;
+  text-align: center;
+  line-height: 180px;
+  // background: rgb(193, 216, 159);
+}
+.scrollMask {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  height: 180px;
+  width: 160px;
+  background: linear-gradient(45deg, #D4C4E6 0%, #F1EAFB 60%, #EEE1FA 100%);
+  opacity: 0.7;
+  border-radius: 0 60px 60px 0;
+  transition: all ease-out .2s;
+}
+.scrollBlank {
+  height: 334px;
+  width: 100%;
+}

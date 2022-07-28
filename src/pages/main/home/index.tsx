@@ -1,38 +1,16 @@
-import React from "react";
-import { connect } from "react-redux";
-import { View, Button, Input } from "@tarojs/components";
-import { doGetValue } from "src/common"
-import State, * as Interface from 'src/interface'
+import React from "react"
+import { View } from '@tarojs/components'
+import TabBar from "src/component/business/tabBar"
+import './index.scss'
 
-namespace Home {
-  export interface Props {
-    value: PickValue<Interface.Common.State, 'value'>
-  }
-}
-
-const Home: React.FC<Home.Props> = props => {
-
-  const [currentValue, setCurrentValue] = React.useState('')
-
-  const getVlue = e => {
-    setCurrentValue(e.target.value)
-  }
-
-  const handleValue = () => {
-    doGetValue(currentValue)
-  }
+const Home: React.FC = () => {
 
   return (
     <>
-      <View>数值器的值为：{props.value}</View>
-      <Input onInput={getVlue} />
-      <Button type="primary" onClick={() => handleValue()} >确定</Button>
+      <View>主页</View>
+      <TabBar current={0} />
     </>
   )
 }
 
-export default connect((state: State) => {
-  return({
-    value: state.common.value
-  })
-})(Home)
+export default Home
