@@ -1,15 +1,28 @@
 import React from "react"
+import { connect } from "react-redux"
 import { View, ScrollView } from '@tarojs/components'
 import TabBar from "src/component/business/tabBar"
 import SideNav from "./components/SideNav"
 import Menu from "./components/Menu"
 import { getActualSize } from 'src/common'
 import { OrderList } from 'src/pages/constant'
+import State, * as Interface from 'src/interface'
 import './index.scss'
 
 const sectionMap: ObjectType = Object.create(null) //区间映射
 
-const Order: React.FC = () => {
+namespace Order {
+  export interface Props {
+    data: PickValue<Interface.Common.State, 'data'>
+  }
+}
+
+const Order: React.FC<Order.Props> = props => {
+
+
+  const {
+    data
+  } = props
 
   const { list } = OrderList
 
@@ -86,7 +99,7 @@ const Order: React.FC = () => {
         onScroll={handleScroll}
       >
         <View>
-          <View className="topContent">content</View>
+          <View className="topContent">V金为：{data}</View>
           <View className="content">
             <SideNav
               list={list}
@@ -104,4 +117,6 @@ const Order: React.FC = () => {
   )
 }
 
-export default Order
+export default connect((state: State) => ({
+  data: state.common.data
+}) )(Order)
