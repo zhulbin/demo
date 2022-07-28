@@ -1,1 +1,1 @@
-export const GET_VALUE = 'COMMON_GET_VALUE'
+export const GET_VALUE = 'TEST_GET_VALUE'
