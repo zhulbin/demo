@@ -3,7 +3,7 @@ import { COMMON as TYPE } from 'src/constant'
 import { Common as Interface } from 'src/interface'
 
 const initialState: Interface.State = {
-  data: ''
+  data: 0
 }
 
 export const reducer = createReducer(initialState, {
@@ -12,7 +12,7 @@ export const reducer = createReducer(initialState, {
   }
 })
 
-export const getVglod = (data: string) => {
+export const getVglod = (data: number) => {
   return ({
     type:TYPE.GET_VGLOD,
     data

@@ -20,7 +20,7 @@ const Home: React.FC<Home.Props> = props => {
     data
   } = props
 
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = React.useState(0)
 
   const goOrder = () => {
     Taro.switchTab({
@@ -29,18 +29,27 @@ const Home: React.FC<Home.Props> = props => {
   }
 
   const getInput = e => {
-    setValue(e.target.value)
+    let result = isNaN(Number(e.target.value)) ? 0 : Number(e.target.value)
+    setValue(result)
   }
 
   const handleValue = () => {
-    doGetVglod(value)
+    if(value) {
+      doGetVglod(value)
+    }else{
+      Taro.showToast({
+        title: '输入V金数量有误',
+        icon: 'none',
+        duration: 2000
+      })
+    }
   }
 
   return (
     <>
       <View>v金: {data}</View>
       <View className="wrapper">
-        <Input placeholder="输入V金" className="input" onInput={getInput} />
+        <Input placeholder="输入V金数量" className="input" type="number" onInput={getInput} />
         <Button type="primary" className="btn" onClick={handleValue} >确认</Button>
       </View>
       <Button onClick={goOrder}>去往点单页</Button>

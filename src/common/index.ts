@@ -7,7 +7,7 @@ export const doGetValue = (value: string) => {
   return store.dispatch(getValue(value))
 }
 
-export const doGetVglod = (data: string) => {
+export const doGetVglod = (data: number) => {
   return store.dispatch(getVglod(data))
 }
 
